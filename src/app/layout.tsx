@@ -18,19 +18,41 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  title: "TypeScript Backend Toolkit",
-  description: "A powerful backend toolkit designed for scalability and flexibility. Equipped with modern technologies and best practices, it's the perfect starting point for your next backend project.",
+  title: "TypeScript Backend Toolkit - Build Production-Ready APIs in Minutes",
+  description: "Auto-generated OpenAPI docs from Zod schemas. Artisan-like CLI. Type-safe everything. Express.js framework with MagicRouter, JWT auth, file uploads, background jobs, admin panel, and more.",
+  keywords: [
+    "TypeScript",
+    "Backend",
+    "Express",
+    "API",
+    "OpenAPI",
+    "Swagger",
+    "Zod",
+    "MagicRouter",
+    "REST API",
+    "Node.js",
+    "Type-safe",
+    "Backend framework",
+    "Express framework",
+    "TypeScript framework",
+    "API documentation",
+    "Backend toolkit",
+  ],
+  authors: [{ name: "TypeScript Backend Toolkit Contributors" }],
   openGraph: {
     images: [
       {
         url: "/ts-toolkit-main.png",
         width: 1200,
         height: 630,
+        alt: "TypeScript Backend Toolkit - Build Production-Ready APIs",
       },
     ],
-    title: "TypeScript Backend Toolkit",
-    description: "A powerful backend toolkit designed for scalability and flexibility. Equipped with modern technologies and best practices.",
+    title: "TypeScript Backend Toolkit - Auto-Generated OpenAPI, Type-Safe Everything",
+    description: "Express.js with superpowers. MagicRouter auto-generates OpenAPI docs from Zod schemas. Artisan-like CLI, JWT auth, file uploads, background jobs, admin panel. Production-ready in minutes.",
     type: "website",
+    siteName: "TypeScript Backend Toolkit",
+    url: "https://github.com/muneebhashone/typescript-backend-toolkit",
   },
   twitter: {
     images: [
@@ -38,12 +60,18 @@ export const metadata: Metadata = {
         url: "/ts-toolkit-main.png",
         width: 1200,
         height: 630,
+        alt: "TypeScript Backend Toolkit - Build Production-Ready APIs",
       },
     ],
     card: "summary_large_image",
-    title: "TypeScript Backend Toolkit",
-    description: "A powerful backend toolkit designed for scalability and flexibility.",
+    title: "TypeScript Backend Toolkit - Auto-Generated OpenAPI, Type-Safe Everything",
+    description: "Express.js with superpowers. MagicRouter auto-generates OpenAPI docs from Zod schemas. Production-ready APIs in minutes.",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  metadataBase: new URL("https://github.com/muneebhashone/typescript-backend-toolkit"),
 };
 
 export default function RootLayout({
