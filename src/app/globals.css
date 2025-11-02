@@ -3,15 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Brand Colors - Based on #29B5FC */
+  --primary: #29B5FC;
+  --primary-light: #5CC7FD;
+  --primary-lighter: #8FDAFE;
+  --primary-dark: #1E9FE3;
+  --primary-darker: #1589CA;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Background Colors */
+  --background: #020617;
+  --background-lighter: #0f172a;
+  --background-card: rgba(15, 23, 42, 0.6);
+
+  /* Text Colors */
+  --foreground: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  /* Border Colors */
+  --border-primary: #1e293b;
+  --border-secondary: #334155;
 }
 
 body {
@@ -20,34 +31,7 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
 }
 
-.gradient-blur {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  border-radius: 800px;
-  filter: blur(100px);
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.gradient-blur-1 {
-  background: radial-gradient(circle at center, #4f46e5 0%, transparent 70%);
-  top: -400px;
-  left: -300px;
-}
-
-.gradient-blur-2 {
-  background: radial-gradient(circle at center, #7c3aed 0%, transparent 70%);
-  top: 200px;
-  right: -300px;
-}
-
-.gradient-blur-3 {
-  background: radial-gradient(circle at center, #2563eb 0%, transparent 70%);
-  bottom: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+/* Removed gradient blur backgrounds */
 
 @keyframes float {
   0% {
@@ -101,15 +85,9 @@ body {
   content: "";
   position: absolute;
   inset: -1px;
-  background: linear-gradient(
-    45deg,
-    #4f46e5,
-    #7c3aed,
-    #2563eb,
-    #4f46e5
-  );
+  background: var(--primary);
   border-radius: 1rem;
-  mask: 
+  mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
@@ -138,7 +116,7 @@ body {
 
 .gradient-border.feature-card:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px -20px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 20px 40px -20px rgba(41, 181, 252, 0.3);
 }
 
 .gradient-border.feature-card:hover::after {
@@ -212,7 +190,7 @@ body {
   background: rgba(30, 41, 59, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 1.5rem;
-  box-shadow: 0 20px 40px -20px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 20px 40px -20px rgba(41, 181, 252, 0.2);
 }
 
 @keyframes terminalLine {
@@ -224,4 +202,43 @@ body {
 
 [style*="animation-delay"] {
   opacity: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text gradient utilities - now using solid primary color */
+.text-gradient {
+  color: var(--primary);
+}
+
+.text-gradient-alt {
+  color: var(--primary-light);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 30px rgba(41, 181, 252, 0.3);
+}
+
+.glow-primary-light {
+  box-shadow: 0 0 30px rgba(92, 199, 253, 0.3);
+}
+
+/* Removed animated gradient backgrounds */
+
+/* Pulse animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
