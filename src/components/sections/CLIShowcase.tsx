@@ -3,7 +3,10 @@
 import { Container } from '@/components/layout/Container';
 import { CodeBlock } from '@/components/ui/CodeBlock';
 import { Badge } from '@/components/ui/Badge';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import {
+  SpotlightCard,
+  SpotlightCardContent,
+} from '@/components/ui/SpotlightCard';
 import { motion } from 'motion/react';
 import { Terminal, Rocket, PackagePlus, Wrench } from 'lucide-react';
 
@@ -152,12 +155,14 @@ $ pnpm tbk docs:sdk
           </h3>
           <div className="grid md:grid-cols-2 gap-4">
             {otherCommands.map((item, index) => (
-              <Card key={index} variant="default" className="p-4">
-                <code className="text-sm text-purple-400 font-mono block mb-2">
-                  {item.command}
-                </code>
-                <p className="text-sm text-slate-400">{item.description}</p>
-              </Card>
+              <SpotlightCard key={index}>
+                <SpotlightCardContent>
+                  <code className="text-sm text-primary font-mono block mb-2">
+                    {item.command}
+                  </code>
+                  <p className="text-sm text-slate-400">{item.description}</p>
+                </SpotlightCardContent>
+              </SpotlightCard>
             ))}
           </div>
         </motion.div>
@@ -171,15 +176,17 @@ $ pnpm tbk docs:sdk
           className="grid md:grid-cols-3 gap-6"
         >
           {cliFeatures.map((feature, index) => (
-            <Card key={index} variant="glow" hover="lift" className="p-6">
-              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30 mb-4">
-                <feature.icon className="w-6 h-6 text-blue-400" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-200 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-slate-400">{feature.description}</p>
-            </Card>
+            <SpotlightCard key={index}>
+              <SpotlightCardContent>
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/20 border border-slate-800 mb-4">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-200 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-400">{feature.description}</p>
+              </SpotlightCardContent>
+            </SpotlightCard>
           ))}
         </motion.div>
       </Container>

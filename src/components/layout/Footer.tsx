@@ -45,9 +45,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
-                TS
-              </div>
+              <img
+                src="https://github.com/muneebhashone/typescript-backend-toolkit/raw/main/logo.png"
+                alt="TypeScript Backend Toolkit Logo"
+                className="w-8 h-8"
+              />
               <span className="font-bold text-slate-100">TBK</span>
             </div>
             <p className="text-sm text-slate-400 mb-4 leading-relaxed">
@@ -58,7 +60,7 @@ export function Footer() {
               href="https://github.com/muneebhashone/typescript-backend-toolkit"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-dark transition-colors"
             >
               <Github className="w-4 h-4" />
               View on GitHub
@@ -74,7 +76,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-purple-400 transition-colors"
+                    className="text-sm text-slate-400 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </a>
@@ -93,7 +95,7 @@ export function Footer() {
                     href={link.href}
                     target={link.external ? '_blank' : undefined}
                     rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="text-sm text-slate-400 hover:text-purple-400 transition-colors inline-flex items-center gap-1"
+                    className="text-sm text-slate-400 hover:text-primary transition-colors inline-flex items-center gap-1"
                   >
                     {link.label}
                     {link.external && <ExternalLink className="w-3 h-3" />}
@@ -111,7 +113,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-purple-400 transition-colors"
+                    className="text-sm text-slate-400 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </a>

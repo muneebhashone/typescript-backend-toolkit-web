@@ -3,21 +3,12 @@
 @tailwind utilities;
 
 :root {
-  /* Brand Colors - Vibrant like Supabase/Astro */
-  --purple-primary: #a855f7;
-  --purple-light: #c084fc;
-  --purple-dark: #7e22ce;
-
-  --pink-primary: #ec4899;
-  --pink-light: #f472b6;
-  --pink-dark: #be185d;
-
-  --blue-primary: #3b82f6;
-  --blue-light: #60a5fa;
-  --blue-dark: #1d4ed8;
-
-  --green-primary: #10b981;
-  --green-light: #34d399;
+  /* Brand Colors - Based on #29B5FC */
+  --primary: #29B5FC;
+  --primary-light: #5CC7FD;
+  --primary-lighter: #8FDAFE;
+  --primary-dark: #1E9FE3;
+  --primary-darker: #1589CA;
 
   /* Background Colors */
   --background: #020617;
@@ -40,41 +31,7 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
 }
 
-.gradient-blur {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  border-radius: 800px;
-  filter: blur(100px);
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.gradient-blur-1 {
-  background: radial-gradient(circle at center, var(--purple-primary) 0%, transparent 70%);
-  top: -400px;
-  left: -300px;
-}
-
-.gradient-blur-2 {
-  background: radial-gradient(circle at center, var(--pink-primary) 0%, transparent 70%);
-  top: 200px;
-  right: -300px;
-}
-
-.gradient-blur-3 {
-  background: radial-gradient(circle at center, var(--blue-primary) 0%, transparent 70%);
-  bottom: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.gradient-blur-4 {
-  background: radial-gradient(circle at center, var(--green-primary) 0%, transparent 60%);
-  top: 50%;
-  left: -400px;
-  opacity: 0.1;
-}
+/* Removed gradient blur backgrounds */
 
 @keyframes float {
   0% {
@@ -128,15 +85,9 @@ body {
   content: "";
   position: absolute;
   inset: -1px;
-  background: linear-gradient(
-    45deg,
-    #4f46e5,
-    #7c3aed,
-    #2563eb,
-    #4f46e5
-  );
+  background: var(--primary);
   border-radius: 1rem;
-  mask: 
+  mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
@@ -165,7 +116,7 @@ body {
 
 .gradient-border.feature-card:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px -20px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 20px 40px -20px rgba(41, 181, 252, 0.3);
 }
 
 .gradient-border.feature-card:hover::after {
@@ -239,7 +190,7 @@ body {
   background: rgba(30, 41, 59, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 1.5rem;
-  box-shadow: 0 20px 40px -20px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 20px 40px -20px rgba(41, 181, 252, 0.2);
 }
 
 @keyframes terminalLine {
@@ -258,51 +209,25 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Text gradient utilities */
+/* Text gradient utilities - now using solid primary color */
 .text-gradient {
-  background: linear-gradient(135deg, var(--purple-light), var(--pink-primary), var(--blue-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary);
 }
 
 .text-gradient-alt {
-  background: linear-gradient(135deg, var(--purple-primary), var(--pink-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-light);
 }
 
 /* Glow effects */
-.glow-purple {
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+.glow-primary {
+  box-shadow: 0 0 30px rgba(41, 181, 252, 0.3);
 }
 
-.glow-pink {
-  box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+.glow-primary-light {
+  box-shadow: 0 0 30px rgba(92, 199, 253, 0.3);
 }
 
-.glow-blue {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-}
-
-/* Animated gradient backgrounds */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-}
+/* Removed animated gradient backgrounds */
 
 /* Pulse animation */
 @keyframes pulse-glow {

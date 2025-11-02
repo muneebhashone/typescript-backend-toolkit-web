@@ -1,11 +1,17 @@
 'use client';
 
+import { useState } from 'react';
+import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/layout/Container';
 import { CodeBlock } from '@/components/ui/CodeBlock';
 import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
+import {
+  SpotlightCard,
+  SpotlightCardHeader,
+  SpotlightCardContent,
+} from '@/components/ui/SpotlightCard';
 import { motion } from 'motion/react';
-import { Sparkles, ArrowRight, FileCode, Zap } from 'lucide-react';
+import { Sparkles, FileCode, Zap } from 'lucide-react';
 
 export function MagicRouterShowcase() {
   const zodSchema = `// 1. Define your Zod schemas
@@ -96,17 +102,37 @@ export default router.getRouter();`;
     },
     {
       icon: FileCode,
-      title: 'Request Validation',
+      title: 'Request & Response Validation',
       description:
-        'Zod validates all requests automatically. Invalid data never reaches your handler.',
+        'Zod validates all requests and responses automatically. Invalid data never reaches your handler or your client.',
     },
   ];
 
+  const steps = [
+    {
+      label: 'Zod Schema',
+      code: zodSchema,
+      language: 'typescript' as const,
+      fileName: 'src/modules/users/users.dto.ts',
+    },
+    {
+      label: 'MagicRouter',
+      code: magicRouterCode,
+      language: 'typescript' as const,
+      fileName: 'src/modules/users/users.router.ts',
+    },
+    {
+      label: 'OpenAPI',
+      code: openApiOutput,
+      language: 'yaml' as const,
+      fileName: 'public/openapi.yml (auto-generated)',
+    },
+  ];
+
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <section id="magic-router" className="relative py-20 overflow-hidden">
-      {/* Background gradient */}
-      <div className="gradient-blur gradient-blur-3" />
-
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -130,63 +156,36 @@ export default router.getRouter();`;
         </motion.div>
 
         {/* Code flow */}
-        <div className="space-y-8 mb-16">
+        <div className="mb-16">
+          {/* Segmented control */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-1 rounded-lg border border-slate-800 bg-slate-900/50 p-1">
+              {steps.map((step, index) => (
+                <Button
+                  key={step.label}
+                  variant={activeStep === index ? 'primary' : 'ghost'}
+                  size="sm"
+                  className="px-3 py-1.5"
+                  onClick={() => setActiveStep(index)}
+                >
+                  {step.label}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* Active code block */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            key={activeStep}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="max-w-4xl mx-auto"
           >
             <CodeBlock
-              code={zodSchema}
-              language="typescript"
-              fileName="src/modules/users/users.dto.ts"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="flex justify-center"
-          >
-            <ArrowRight className="w-8 h-8 text-purple-500 animate-pulse-glow" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <CodeBlock
-              code={magicRouterCode}
-              language="typescript"
-              fileName="src/modules/users/users.router.ts"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            className="flex justify-center"
-          >
-            <ArrowRight className="w-8 h-8 text-purple-500 animate-pulse-glow" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <CodeBlock
-              code={openApiOutput}
-              language="yaml"
-              fileName="public/openapi.yml (auto-generated)"
+              code={steps[activeStep].code}
+              language={steps[activeStep].language}
+              fileName={steps[activeStep].fileName}
             />
           </motion.div>
         </div>
@@ -200,20 +199,19 @@ export default router.getRouter();`;
           className="grid md:grid-cols-3 gap-6"
         >
           {features.map((feature, index) => (
-            <Card
-              key={index}
-              variant="gradient"
-              hover="lift"
-              className="p-6 border-purple-500/20"
-            >
-              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 mb-4">
-                <feature.icon className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-200 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-slate-400">{feature.description}</p>
-            </Card>
+            <SpotlightCard key={index} className="border border-slate-800">
+              <SpotlightCardHeader>
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/20 border border-primary/30">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+              </SpotlightCardHeader>
+              <SpotlightCardContent>
+                <h3 className="text-xl font-bold text-slate-200 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-400">{feature.description}</p>
+              </SpotlightCardContent>
+            </SpotlightCard>
           ))}
         </motion.div>
       </Container>

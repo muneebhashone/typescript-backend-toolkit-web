@@ -8,6 +8,29 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: "var(--primary)",
+          light: "var(--primary-light)",
+          lighter: "var(--primary-lighter)",
+          dark: "var(--primary-dark)",
+          darker: "var(--primary-darker)",
+        },
+        background: {
+          DEFAULT: "var(--background)",
+          lighter: "var(--background-lighter)",
+          card: "var(--background-card)",
+        },
+        text: {
+          DEFAULT: "var(--foreground)",
+          secondary: "var(--text-secondary)",
+          tertiary: "var(--text-tertiary)",
+        },
+        border: {
+          DEFAULT: "var(--border-primary)",
+          secondary: "var(--border-secondary)",
+        },
+      },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],

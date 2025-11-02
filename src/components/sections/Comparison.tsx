@@ -190,9 +190,9 @@ export function Comparison() {
               {frameworks.map((framework, index) => (
                 <div
                   key={index}
-                  className={`text-center p-4 rounded-lg ${
+                  className={`text-center p-4 rounded-lg relative ${
                     framework.highlight
-                      ? 'bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-2 border-purple-500/50'
+                      ? 'bg-primary/20 border-2 border-primary/50'
                       : 'bg-slate-900/50 border border-slate-800'
                   }`}
                 >
@@ -200,9 +200,11 @@ export function Comparison() {
                     {framework.name}
                   </div>
                   {framework.highlight && (
-                    <Badge variant="glow" className="mt-2 text-xs">
-                      Recommended
-                    </Badge>
+                    <div className="w-full flex justify-center">
+                      <Badge className="mt-2 text-xs text-black absolute -bottom-3 bg-primary">
+                        Recommended
+                      </Badge>
+                    </div>
                   )}
                 </div>
               ))}

@@ -39,9 +39,11 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform">
-              TS
-            </div>
+            <img
+              src="https://github.com/muneebhashone/typescript-backend-toolkit/raw/main/logo.png"
+              alt="TypeScript Backend Toolkit Logo"
+              className="w-8 h-8 group-hover:scale-110 transition-transform"
+            />
             <span className="font-bold text-slate-100 hidden sm:block">
               TypeScript Backend Toolkit
             </span>
@@ -54,7 +56,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-slate-300 hover:text-purple-400 transition-colors"
+                className="text-sm text-slate-300 hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
@@ -73,7 +75,6 @@ export function Header() {
               <Github className="w-4 h-4" />
               GitHub
             </Button>
-            <Button size="sm">Get Started</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -106,7 +107,7 @@ export function Header() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block text-slate-300 hover:text-purple-400 transition-colors py-2"
+                    className="block text-slate-300 hover:text-primary transition-colors py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -123,7 +124,6 @@ export function Header() {
                     <Github className="w-4 h-4" />
                     GitHub
                   </Button>
-                  <Button className="w-full">Get Started</Button>
                 </div>
               </nav>
             </Container>

@@ -7,8 +7,9 @@ const cardVariants = cva(
     variants: {
       variant: {
         default: 'bg-slate-900/50 border border-slate-800',
-        gradient: 'bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-slate-700',
-        glow: 'bg-slate-900/50 border border-slate-700 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20',
+        gradient:
+          'bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-slate-700',
+        glow: 'bg-slate-900/50 border border-slate-700 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20',
       },
       hover: {
         none: '',
@@ -20,14 +21,20 @@ const cardVariants = cva(
       variant: 'default',
       hover: 'none',
     },
-  }
+  },
 );
 
 interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {}
 
-export function Card({ className, variant, hover, children, ...props }: CardProps) {
+export function Card({
+  className,
+  variant,
+  hover,
+  children,
+  ...props
+}: CardProps) {
   return (
     <div className={cn(cardVariants({ variant, hover, className }))} {...props}>
       {children}
@@ -35,6 +42,7 @@ export function Card({ className, variant, hover, children, ...props }: CardProp
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function CardHeader({ className, children, ...props }: CardHeaderProps) {
@@ -45,9 +53,14 @@ export function CardHeader({ className, children, ...props }: CardHeaderProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export function CardContent({ className, children, ...props }: CardContentProps) {
+export function CardContent({
+  className,
+  children,
+  ...props
+}: CardContentProps) {
   return (
     <div className={cn('p-6 pt-0', className)} {...props}>
       {children}

@@ -2,8 +2,10 @@
 
 import { Container } from '@/components/layout/Container';
 import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
-import { CodeBlock } from '@/components/ui/CodeBlock';
+import {
+  SpotlightCard,
+  SpotlightCardContent,
+} from '@/components/ui/SpotlightCard';
 import { motion } from 'motion/react';
 import {
   FileText,
@@ -172,10 +174,10 @@ $ pnpm tbk docs:sdk`,
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
             >
-              <Card variant="glow" hover="lift" className="h-full">
-                <div className="p-6">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 mb-4">
-                    <feature.icon className="w-6 h-6 text-purple-400" />
+              <SpotlightCard className="h-full">
+                <SpotlightCardContent>
+                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/20 border border-slate-800 mb-4">
+                    <feature.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-200 mb-2">
                     {feature.title}
@@ -188,8 +190,8 @@ $ pnpm tbk docs:sdk`,
                       {feature.code}
                     </pre>
                   </div>
-                </div>
-              </Card>
+                </SpotlightCardContent>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

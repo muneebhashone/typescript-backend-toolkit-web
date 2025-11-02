@@ -8,11 +8,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/50 hover:scale-[1.02] active:scale-[0.98]',
+          'bg-primary text-white hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/50 hover:scale-[1.02] active:scale-[0.98]',
         secondary:
           'bg-slate-800 text-slate-100 border border-slate-700 hover:bg-slate-700 hover:border-slate-600',
         outline:
-          'border-2 border-slate-700 text-slate-100 hover:bg-slate-800 hover:border-purple-500',
+          'border-2 border-slate-700 text-slate-100 hover:bg-slate-800 hover:border-primary',
         ghost: 'text-slate-300 hover:bg-slate-800 hover:text-slate-100',
       },
       size: {

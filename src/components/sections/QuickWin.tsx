@@ -22,6 +22,7 @@ app.post('/api/users', (req, res) => {
   }
 
   // No type safety
+  // Manual input validation
   // No auto-generated docs
   // No response validation
 
@@ -52,6 +53,7 @@ router.post('/', {
   // Fully typed request & response
   // OpenAPI docs auto-generated
   // Response validation enabled
+  // Input validated by Zod
 
   return res.created?.({
     success: true,
@@ -115,6 +117,10 @@ router.post('/', {
                 <X className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span>No response validation</span>
               </div>
+              <div className="flex items-start gap-2 text-sm text-red-400">
+                <X className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>Manual input validation</span>
+              </div>
             </div>
           </motion.div>
 
@@ -149,7 +155,11 @@ router.post('/', {
               </div>
               <div className="flex items-start gap-2 text-sm text-green-400">
                 <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Response validation in development</span>
+                <span>Response validation</span>
+              </div>
+              <div className="flex items-start gap-2 text-sm text-green-400">
+                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>Input validated by Zod</span>
               </div>
             </div>
           </motion.div>

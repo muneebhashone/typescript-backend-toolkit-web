@@ -2,7 +2,10 @@
 
 import { Container } from '@/components/layout/Container';
 import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
+import {
+  SpotlightCard,
+  SpotlightCardContent,
+} from '@/components/ui/SpotlightCard';
 import { CodeBlock } from '@/components/ui/CodeBlock';
 import { motion } from 'motion/react';
 import { Blocks, ArrowDown } from 'lucide-react';
@@ -88,8 +91,6 @@ export const myPlugin: ToolkitPlugin = {
 
   return (
     <section id="plugins" className="relative py-20 overflow-hidden">
-      <div className="gradient-blur gradient-blur-4" />
-
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -123,75 +124,85 @@ export const myPlugin: ToolkitPlugin = {
               How Plugins Work
             </h3>
             <div className="space-y-4">
-              <Card variant="gradient" className="p-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500/50 text-purple-400 font-bold">
-                    1
+              <SpotlightCard>
+                <SpotlightCardContent>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 border border-primary/50 text-primary font-bold">
+                      1
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-200">
+                        Define Plugin
+                      </h4>
+                      <p className="text-sm text-slate-400">
+                        Implement ToolkitPlugin interface
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-200">Define Plugin</h4>
-                    <p className="text-sm text-slate-400">
-                      Implement ToolkitPlugin interface
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </SpotlightCardContent>
+              </SpotlightCard>
 
               <div className="flex justify-center">
-                <ArrowDown className="w-6 h-6 text-purple-500" />
+                <ArrowDown className="w-6 h-6 text-primary" />
               </div>
 
-              <Card variant="gradient" className="p-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-pink-500/20 border border-pink-500/50 text-pink-400 font-bold">
-                    2
+              <SpotlightCard>
+                <SpotlightCardContent>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-light/20 border border-primary-light/50 text-primary-light font-bold">
+                      2
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-200">
+                        Register in createApp()
+                      </h4>
+                      <p className="text-sm text-slate-400">
+                        Plugins sorted by priority
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-200">
-                      Register in createApp()
-                    </h4>
-                    <p className="text-sm text-slate-400">
-                      Plugins sorted by priority
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </SpotlightCardContent>
+              </SpotlightCard>
 
               <div className="flex justify-center">
-                <ArrowDown className="w-6 h-6 text-purple-500" />
+                <ArrowDown className="w-6 h-6 text-primary" />
               </div>
 
-              <Card variant="gradient" className="p-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 text-blue-400 font-bold">
-                    3
+              <SpotlightCard>
+                <SpotlightCardContent>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-dark/20 border border-primary-dark/50 text-primary-dark font-bold">
+                      3
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-200">App Starts</h4>
+                      <p className="text-sm text-slate-400">
+                        Plugins initialize in order
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-200">App Starts</h4>
-                    <p className="text-sm text-slate-400">
-                      Plugins initialize in order
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </SpotlightCardContent>
+              </SpotlightCard>
 
               <div className="flex justify-center">
-                <ArrowDown className="w-6 h-6 text-purple-500" />
+                <ArrowDown className="w-6 h-6 text-primary" />
               </div>
 
-              <Card variant="gradient" className="p-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20 border border-green-500/50 text-green-400 font-bold">
-                    4
+              <SpotlightCard>
+                <SpotlightCardContent>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20 border border-green-500/50 text-green-400 font-bold">
+                      4
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-200">Ready to Use</h4>
+                      <p className="text-sm text-slate-400">
+                        Plugin features available
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-200">Ready to Use</h4>
-                    <p className="text-sm text-slate-400">
-                      Plugin features available
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </SpotlightCardContent>
+              </SpotlightCard>
             </div>
           </motion.div>
 
@@ -206,12 +217,10 @@ export const myPlugin: ToolkitPlugin = {
               Create Your Own Plugin
             </h3>
             <CodeBlock code={pluginExample} language="typescript" />
-            <div className="mt-4 p-4 rounded-lg bg-blue-500/10 border border-blue-500/30">
-              <p className="text-sm text-blue-300">
+            <div className="mt-4 p-4 rounded-lg bg-primary/10 border border-slate-800">
+              <p className="text-sm text-primary-light">
                 <strong>Pro tip:</strong> Use{' '}
-                <code className="text-purple-400">
-                  pnpm tbk generate:plugin
-                </code>{' '}
+                <code className="text-primary">pnpm tbk generate:plugin</code>{' '}
                 to scaffold a plugin automatically!
               </p>
             </div>
@@ -230,17 +239,19 @@ export const myPlugin: ToolkitPlugin = {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {builtInPlugins.map((plugin, index) => (
-              <Card key={index} variant="default" hover="lift" className="p-5">
-                <div className="flex items-start justify-between mb-2">
-                  <h4 className="font-bold text-slate-200">{plugin.name}</h4>
-                  <Badge variant="default" className="text-xs">
-                    P{plugin.priority}
-                  </Badge>
-                </div>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  {plugin.description}
-                </p>
-              </Card>
+              <SpotlightCard key={index}>
+                <SpotlightCardContent className="p-5">
+                  <div className="flex items-start justify-between mb-2">
+                    <h4 className="font-bold text-slate-200">{plugin.name}</h4>
+                    <Badge variant="default" className="text-xs">
+                      P{plugin.priority}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    {plugin.description}
+                  </p>
+                </SpotlightCardContent>
+              </SpotlightCard>
             ))}
           </div>
         </motion.div>
