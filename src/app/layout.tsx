@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/favicon.ico',
+    icon: 'https://raw.githubusercontent.com/muneebhashone/typescript-backend-toolkit/main/logo.png',
   },
   title: 'TypeScript Backend Toolkit - Build Production-Ready APIs in Minutes',
   description:
